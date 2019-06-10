@@ -1,9 +1,6 @@
 package com.srv.transfer.entity;
 
-import com.srv.transfer.utils.AmountFormatter;
-
 import java.math.BigDecimal;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import static com.srv.transfer.utils.AmountFormatter.format;
@@ -13,7 +10,6 @@ public class Account {
     private BigDecimal balance;
 
     private ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
-
 
     public Account(String accountNo, BigDecimal amount) {
         this.accountNo = accountNo;
@@ -28,33 +24,32 @@ public class Account {
         readWriteLock.readLock().lock();
         try {
             return this.balance;
-        }finally {
+        } finally {
             readWriteLock.readLock().unlock();
         }
     }
 
-    public boolean deposit(BigDecimal amount){
+    public boolean deposit(BigDecimal amount) {
         readWriteLock.writeLock().lock();
         try {
             this.balance = this.balance.add(amount);
             return true;
-        }finally {
+        } finally {
             readWriteLock.writeLock().unlock();
         }
     }
 
-    public synchronized boolean withdrawl(BigDecimal amount){
+    public synchronized boolean withdrawl(BigDecimal amount) {
         readWriteLock.writeLock().lock();
         try {
-            if(this.balance.compareTo(amount)>=0){
-                this.balance=this.balance.subtract(amount);
+            if (this.balance.compareTo(amount) >= 0) {
+                this.balance = this.balance.subtract(amount);
                 return true;
             }
-            System.out.println("Insufficiend balance, "+ format(amount)+">" +format(this.balance) +" . Transaction failed!!!");
+            System.out.println("Insufficient balance " + format(amount) + ">" + format(this.balance) + "!!!");
             return false;
-        }finally {
+        } finally {
             readWriteLock.writeLock().unlock();
         }
     }
-
 }
