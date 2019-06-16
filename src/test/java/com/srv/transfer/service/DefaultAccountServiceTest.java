@@ -7,9 +7,9 @@ import java.util.concurrent.Executors;
 
 import static org.junit.Assert.assertEquals;
 
-public class AccountServiceTest {
+public class DefaultAccountServiceTest {
 
-    AccountService accountService = new AccountService();
+    DefaultAccountService accountService = new DefaultAccountService();
 
     @Test
     public void accountServiceTest() {
