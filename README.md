@@ -70,5 +70,5 @@ solve this problem achieving both parallelism and concurrency.
 1. One transaction will happen at the same time for any account.
 2. Different transactions happens concurrently.
 3. Reconciliation can be done as all transaction is saved globally and per account
-4. Program can be extended to use distributed lock, so it can number of concurrent transaction support can be increased.
+4. Program can be extended to use distributed lock(like **Redis** etc.), so it can number of concurrent transaction support can be increased.
 
