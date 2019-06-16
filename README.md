@@ -52,10 +52,10 @@ java -jar target/bank-transfer-0.0.1.jar
 ##### Assumptions
 1. Account creation is needed because
 2. Transaction api needs 3 arguments.
-    ```java
+```
     TransferService.java
     public TransactionEntity transfer(String fromAccountNo, String toAccountNo, double amount)
-    ```
+```
 
 #### Background:
 
