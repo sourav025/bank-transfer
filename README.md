@@ -60,7 +60,7 @@ java -jar target/bank-transfer-0.0.1.jar
 #### Background:
 
 Main problem behind this problem is concurrent and parallelism of transactions. It would be really easy when concurrency/parallelism is not required. We would like to 
-solve this problem achieving both parallelism and concurrency.<br/>
+solve this problem achieving both parallelism and concurrency.
 
 **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
 
