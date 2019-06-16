@@ -3,7 +3,6 @@
 `bank-transfer` is a service that provides two apis. **firstly** Account Creation.
 and **secondly** Transfer fund between two accounts. It supports concurrent request from multiple services.
 
-
 #### How to run?
  
 For test purpose, a main class is provided so that using command promt we can test the behavior of the system.
@@ -71,4 +70,3 @@ solve this problem achieving both parallelism and concurrency.
 2. Different transactions happens concurrently.
 3. Reconciliation can be done as all transaction is saved globally and per account
 4. Program can be extended to use distributed lock(like **Redis** etc.), so it can number of concurrent transaction support can be increased.
-
