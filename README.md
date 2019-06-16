@@ -66,7 +66,7 @@ solve this problem achieving both parallelism and concurrency.<br/>
 
 **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
 
-Below benifits are provided by this problem:
+##### Below advantages are provided by this solution:
 1. One transaction will happen at the same time for any account.
 2. Different transactions happens concurrently.
 3. Reconciliation can be done as all transaction is saved globally and per account
