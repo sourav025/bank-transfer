@@ -49,6 +49,13 @@ Then you can execute using java command as below:
 ```
 java -jar target/bank-transfer-0.0.1.jar
 ```
+##### Assumptions
+1. Account creation is needed because
+2. Transaction api needs 3 arguments.
+    ```java
+    TransferService.java
+    public TransactionEntity transfer(String fromAccountNo, String toAccountNo, double amount)
+    ```
 
 #### Background:
 
@@ -58,3 +65,10 @@ solve this problem achieving both parallelism and concurrency.<br/>
 **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
 
 **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
+
+Below benifits are provided by this problem:
+1. One transaction will happen at the same time for any account.
+2. Different transactions happens concurrently.
+3. Reconciliation can be done as all transaction is saved globally and per account
+4. Program can be extended to use distributed lock, so it can number of concurrent transaction support can be increased.
+
